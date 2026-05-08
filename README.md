@@ -1,1 +1,1 @@
-Repository for activity 4. Team 1.
+Repository equipo 1.
