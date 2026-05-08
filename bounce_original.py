@@ -7,19 +7,12 @@ Exercises
 3. Make the ball leave a trail.
 4. Change the ball color based on position.
    Hint: colormode(255); color(0, 100, 200)
-
-Modification: ball changes to a random color on each wall bounce.
 """
 
-from random import choice, random
-from turtle import (
-    setup, hideturtle, tracer, up,
-    clear, goto, dot, ontimer, done, color
-)
+from random import *
+from turtle import *
 
 from freegames import vector
-
-COLORS = ['red', 'blue', 'green', 'cyan', 'orange', 'white', 'yellow']
 
 
 def value():
@@ -29,29 +22,25 @@ def value():
 
 ball = vector(0, 0)
 aim = vector(value(), value())
-current_color = choice(COLORS)
 
 
 def draw():
     """Move ball and draw game."""
-    global current_color
-
     ball.move(aim)
+
     x = ball.x
     y = ball.y
 
     if x < -200 or x > 200:
         aim.x = -aim.x
-        current_color = choice(COLORS)
 
     if y < -200 or y > 200:
         aim.y = -aim.y
-        current_color = choice(COLORS)
 
     clear()
-    color(current_color)
     goto(x, y)
     dot(10)
+
     ontimer(draw, 50)
 
 
